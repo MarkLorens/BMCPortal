@@ -7,8 +7,8 @@
 
 <div class="form-group">
     <div>
-        <button type="button" class="btn btn-secondary btn-outline-dark">@Html.ActionLink("Tambahkan Barang", "CreateStock", null, new { style = "text-decoration:none;" })</button>
-        <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Index","Restock")'">Riwayat Pembelian Barang</button>
+        <button type="button" class="btn btn-secondary btn-outline-dark">@Html.ActionLink("Add Item", "CreateStock", null, new { style = "text-decoration:none;" })</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Index","Restock")'">Item Purchase History</button>
     </div>
 </div>
 <table class="table table-striped table-hover table-dark">
@@ -37,7 +37,7 @@
                 <td>@Html.DisplayFor(modelItem => item.last_modified)</td>
                 <td>@Html.DisplayFor(modelItem => item.brand)</td>
                 <td>@Html.DisplayFor(modelItem => item.price)</td>
-                <td><input type="button" value="Tambahkan Stock" class="btn btn-default btn-light" onclick="location.href='@Url.Action("AddStock","Stock", new { id = item.id }, null)'" /></td>
+                <td><input type="button" value="Add Stock" class="btn btn-default btn-light" onclick="location.href='@Url.Action("AddStock","Stock", new { id = item.id }, null)'" /></td>
             </tr>
         </tbody>
     }

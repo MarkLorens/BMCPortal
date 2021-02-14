@@ -3,15 +3,15 @@
     ViewBag.Title = "Index";
 }
  
-<h2>Daftar Pesanan</h2>
+<h2>Order List</h2>
 
 <div class="form-group"> 
     @using (Html.BeginForm("Index", "Order", FormMethod.Post))
     {
-        <button type="button" class="btn btn-secondary">@Html.ActionLink("Tambahkan Order Barang", "CreateOrderBarang", null, new { style = "text-decoration:none;" })</button>
-        <button type="button" class="btn btn-secondary">@Html.ActionLink("Tambahkan Order Jasa", "CreateOrderJasa", null, new { style = "text-decoration:none;" })</button>
-        <input type="submit" value="Cari Pesanan" class="btn btn-secondary" style="float:right"/>
-        @Html.TextBox("SearchString", null, new { style = "float: right", @class="form-control col-md-2", @placeholder="Search..."} )
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Add Item Order", "CreateOrderBarang", null, new { style = "text-decoration:none;" })</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Add Service Order", "CreateOrderJasa", null, new { style = "text-decoration:none;" })</button>
+        <input type="submit" value="Search" class="btn btn-secondary" style="float:right"/>
+        @Html.TextBox("SearchString", null, new { style = "float: right", @class="form-control col-md-2", @placeholder="Enter order reference"} )
     }
 </div>
 <table class="table table-striped table-hover table-dark">
@@ -56,11 +56,11 @@
             @{
                 if (result < 0)
                 {
-                    <td><input type="button" value="Pesanan selesai" class="btn btn-default btn-light" onclick="location.href='@Url.Action("OrderFinished","Order", new { id = item.order_ref.ToString() },null)'" /></td>
+                    <td><input type="button" value="Finish Order" class="btn btn-default btn-light" onclick="location.href='@Url.Action("OrderFinished","Order", new { id = item.order_ref.ToString() },null)'" /></td>
                 }
                 else
                 {
-                    <td><input type="button" value="Pesanan sudah selesai" class="btn btn-default btn-light" onclick="location.href='@Url.Action("OrderFinished","Order", new { id = item.order_ref.ToString() },null)'" disabled="disabled"/></td>
+                    <td><input type="button" value="Order is done" class="btn btn-default btn-light" onclick="location.href='@Url.Action("OrderFinished","Order", new { id = item.order_ref.ToString() },null)'" disabled="disabled"/></td>
                 }
             }
         </tr>    

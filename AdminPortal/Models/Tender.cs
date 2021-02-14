@@ -9,13 +9,13 @@ namespace AdminPortal.Models
 {
     public class Tender
     {
-        [Display(Name = "Instansi")]
+        [Display(Name = "Name")]
         [Required(ErrorMessage ="Nama instansi harus terisi")]
         public string instansi { get; set; }
-        [Display(Name ="Alamat")]
+        [Display(Name ="Address")]
         [Required(ErrorMessage ="Alamat instansi harus terisi")]
         public string alamat { get; set; }
-        [Display(Name ="Nomor Kontak")]
+        [Display(Name ="Contact Number")]
         [RegularExpression(@"^[0-9]{10,12}$",ErrorMessage ="Masukkan 10-12 digit angka")]
         [Required(ErrorMessage ="Nomor kontak instansi harus terisi")]
         public string no_kontak { get; set; }

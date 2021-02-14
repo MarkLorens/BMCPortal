@@ -8,19 +8,19 @@ namespace AdminPortal.Models
 {
     public class Restock
     {
-        [Display(Name ="Referensi")]
+        [Display(Name ="Reference")]
         public string order_ref { get; set; }
-        [Display(Name ="Tanggal Beli")]
+        [Display(Name ="Date")]
         public DateTime date_bought { get; set; }
-        [Display(Name ="Pembeli")]
+        [Display(Name ="Responsible")]
         public string buyer { get; set; }
-        [Display(Name ="Jumlah Beli")]
+        [Display(Name ="Bought Amount")]
         public float amt_bought { get; set; }
-        [Display(Name ="Jumlah Bayar")]
+        [Display(Name ="Paid Amount")]
         [DisplayFormat(DataFormatString = ("{0:C}"))]
         public float amt_spent { get; set; }
         public int id { get; set; }
-        [Display(Name ="Uraian")]
+        [Display(Name ="Item")]
         public string item { get; set; }
         public string actualDate { get; set; }
     }

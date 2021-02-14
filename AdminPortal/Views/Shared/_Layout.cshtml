@@ -13,9 +13,9 @@
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item"><img src="~/logo2.png" style="width:35px;height:35px"/></li>
                     <li class="nav-item">@Html.ActionLink("Order","Index","Order",null,new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Tender", "Index", "Tender", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("FC/ATK", "Index", "FCATK", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Persediaan", "Index", "Stock", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Buyer", "Index", "Tender", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Order Detail", "Index", "FCATK", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Stock", "Index", "Stock", null, new { @class = "nav-link" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
         </div>
