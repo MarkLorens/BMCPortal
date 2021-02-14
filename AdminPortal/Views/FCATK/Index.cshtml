@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AdminPortal.Models.FCATK>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Jumlah Laku</h2>
+<table class="table table-striped table-hover table-dark">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.order_ref)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.item)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.tgl_masuk)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.stock_before)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.bought_amt)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.stock_after)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.pj)</th>
+            <th></th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tbody class="thead-light">
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.order_ref) </td>
+            @if (item.item_type.Equals("Barang"))
+            {
+                <td>@Html.DisplayFor(modelItem => item.item)</td>
+            }
+            else
+            {
+                <td>@Html.DisplayFor(modelItem => item.item_type) (@Html.DisplayFor(modelItem => item.item))</td>
+            }
+            <td>@Html.DisplayFor(modelItem => item.tgl_masuk)</td>
+            <td>@Html.DisplayFor(modelItem => item.stock_before)</td>
+            <td>@Html.DisplayFor(modelItem => item.bought_amt) </td>
+            <td>@Html.DisplayFor(modelItem => item.stock_after)</td>
+            <td>@Html.DisplayFor(modelItem => item.pj)</td>
+            <td></td>
+        </tr>
+    </tbody>
+}
+
+</table>

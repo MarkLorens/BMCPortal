@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AdminPortal.Models.Tender>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Daftar Instansi</h2>
+
+<div class="form-group">
+    <div>
+        <button type="button" class="btn btn-secondary btn-outline-dark">@Html.ActionLink("Tambahkan Tender", "CreateTender", null, new { style = "text-decoration:none;" })</button>
+    </div>
+</div>
+
+<table class="table table-striped table-hover table-dark">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.instansi) </th>
+            <th scope="col">@Html.DisplayNameFor(model => model.alamat)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.no_kontak)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.email)</th>
+        </tr>
+    </thead>
+@foreach (var item in Model)
+{
+        <tbody class="thead-light">
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.instansi)</td>
+                <td>@Html.DisplayFor(modelItem => item.alamat)</td>
+                <td>@Html.DisplayFor(modelItem => item.no_kontak)</td>
+                <td>@Html.DisplayFor(modelItem => item.email)</td>
+            </tr>
+        </tbody>
+}
+</table>
+

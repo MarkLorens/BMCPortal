@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AdminPortal.Models.Order>
+@{
+    ViewBag.Title = "Index";
+}
+ 
+<h2>Daftar Pesanan</h2>
+
+<div class="form-group"> 
+    @using (Html.BeginForm("Index", "Order", FormMethod.Post))
+    {
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Tambahkan Order Barang", "CreateOrderBarang", null, new { style = "text-decoration:none;" })</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Tambahkan Order Jasa", "CreateOrderJasa", null, new { style = "text-decoration:none;" })</button>
+        <input type="submit" value="Cari Pesanan" class="btn btn-secondary" style="float:right"/>
+        @Html.TextBox("SearchString", null, new { style = "float: right", @class="form-control col-md-2", @placeholder="Search..."} )
+    }
+</div>
+<table class="table table-striped table-hover table-dark table-responsive">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.order_ref)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.item)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.tgl_masuk)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.tgl_selesai)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.dp)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.sisa)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.total)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.pj)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.instansi)</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+@foreach (var item in Model)
+{
+    <tbody class="thead-light">
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.order_ref)</td>
+            <td>@Html.DisplayFor(modelItem => item.item) (@Html.DisplayFor(modelItem => item.bought_amt)) </td>
+            <td>@Html.DisplayFor(modelItem => item.tgl_masuk)</td>
+            @{
+                DateTime x = new DateTime(01, 01, 01, 0, 02, 02);
+                int result = DateTime.Compare(item.tgl_selesai, x);
+                if (result < 0)
+                {
+                    <td>Order Belum Selesai</td>
+                }
+                else
+                {
+                    <td style="color:#ff0000">@Html.DisplayFor(modelItem => item.tgl_selesai)</td>
+                }
+            }
+            <td>@Html.DisplayFor(modelItem => item.dp)</td>
+            <td>@Html.DisplayFor(modelItem => item.sisa)</td>
+            <td>@Html.DisplayFor(modelItem => item.total)</td>
+            <td>@Html.DisplayFor(modelItem => item.pj)</td>
+            <td>@Html.DisplayFor(modelItem => item.instansi)</td>
+            @{
+                if (result < 0)
+                {
+                    <td><input type="button" value="Pesanan selesai" class="btn btn-default btn-light" onclick="location.href='@Url.Action("OrderFinished","Order", new { id = item.order_ref.ToString() },null)'" /></td>
+                }
+                else
+                {
+                    <td><input type="button" value="Pesanan sudah selesai" class="btn btn-default btn-light" onclick="location.href='@Url.Action("OrderFinished","Order", new { id = item.order_ref.ToString() },null)'" disabled="disabled"/></td>
+                }
+            }
+        </tr>    
+    </tbody>
+}
+</table>
+

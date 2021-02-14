@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AdminPortal.Models.Restock>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Riwayat Pembelian</h2>
+
+<table class="table table-striped table-hover table-dark">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.order_ref)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.date_bought)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.buyer)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.amt_bought)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.amt_spent)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.item)
+            </th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+<tbody class="thead-light">
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_ref)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actualDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.buyer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amt_bought)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amt_spent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item)
+        </td>
+    </tr>
+</tbody>
+}
+
+</table>

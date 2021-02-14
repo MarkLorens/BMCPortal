@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AdminPortal.Models.Stock>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Stock List</h2>
+
+<div class="form-group">
+    <div>
+        <button type="button" class="btn btn-secondary btn-outline-dark">@Html.ActionLink("Tambahkan Barang", "CreateStock", null, new { style = "text-decoration:none;" })</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Index","Restock")'">Riwayat Pembelian Barang</button>
+    </div>
+</div>
+<table class="table table-striped table-hover table-dark">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.id) </th>
+            <th scope="col">@Html.DisplayNameFor(model => model.item)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.stock)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.stock_before) </th>
+            <th scope="col">@Html.DisplayNameFor(model => model.amt_modified)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.last_modified)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.brand)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.price) </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody class="thead-light">
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.id)</td>
+                <td>@Html.DisplayFor(modelItem => item.item)</td>
+                <td>@Html.DisplayFor(modelItem => item.stock)</td>
+                <td>@Html.DisplayFor(modelItem => item.stock_before)</td>
+                <td>@Html.DisplayFor(modelItem => item.amt_modified)</td>
+                <td>@Html.DisplayFor(modelItem => item.last_modified)</td>
+                <td>@Html.DisplayFor(modelItem => item.brand)</td>
+                <td>@Html.DisplayFor(modelItem => item.price)</td>
+                <td><input type="button" value="Tambahkan Stock" class="btn btn-default btn-light" onclick="location.href='@Url.Action("AddStock","Stock", new { id = item.id }, null)'" /></td>
+            </tr>
+        </tbody>
+    }
+</table>
+
