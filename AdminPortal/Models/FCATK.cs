@@ -5,19 +5,19 @@ namespace AdminPortal.Models
 {
     public class FCATK
     {
-        [Display(Name = "Referensi")]
+        [Display(Name = "Reference")]
         public string order_ref { get; set; }
-        [Display(Name = "Barang")]
+        [Display(Name = "Items")]
         public string item { get; set; }
-        [Display(Name = "Masuk")]
+        [Display(Name = "Date")]
         public DateTime tgl_masuk { get; set; }
-        [Display(Name = "Stock awal")]
+        [Display(Name = "Initial Stock")]
         public float stock_before { get; set; }
-        [Display(Name = "Jumlah beli")]
+        [Display(Name = "Amount Bought")]
         public float bought_amt { get; set; }
-        [Display(Name = "Stock Setelah Beli")]
+        [Display(Name = "Stock After")]
         public float stock_after { get; set; }
-        [Display(Name = "Penanggung Jawab")]
+        [Display(Name = "Responsible")]
         public string pj { get; set; }
         public string item_type { get; set; }
         
