@@ -70,7 +70,10 @@ namespace AdminPortal.Controllers
                         while (checkID == 1)
                         {
                             compareID = random.Next(999);
-                            checkID = (int)sqlID.ExecuteScalar();
+                            if(checkID == compareID)
+                            {
+                                compareID = random.Next(999);
+                            }
                         }
                         if (countItem < 1)
                         {

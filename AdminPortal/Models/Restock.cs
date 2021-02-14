@@ -15,10 +15,9 @@ namespace AdminPortal.Models
         [Display(Name ="Pembeli")]
         public string buyer { get; set; }
         [Display(Name ="Jumlah Beli")]
-        [DisplayFormat(DataFormatString = ("{0:0,0}"))]
         public float amt_bought { get; set; }
-        [Display(Name ="Jumlah Beli")]
-        [DisplayFormat(DataFormatString = ("{0:0,0}"))]
+        [Display(Name ="Jumlah Bayar")]
+        [DisplayFormat(DataFormatString = ("{0:C}"))]
         public float amt_spent { get; set; }
         public int id { get; set; }
         [Display(Name ="Uraian")]
