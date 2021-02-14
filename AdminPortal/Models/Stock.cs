@@ -15,7 +15,6 @@ namespace AdminPortal.Models
         public string item { get; set; }
         [Display(Name = "Stock")]
         [Required(ErrorMessage = "Jumlah stok awal harus diisi")]
-        [DisplayFormat(DataFormatString = ("{0:0,0}"))]
         public float stock { get; set; }
         [Display(Name = "Jumlah Diubah")]
         public int amt_modified { get; set; }
@@ -27,8 +26,8 @@ namespace AdminPortal.Models
         [Required(ErrorMessage = "Nama merk harus diisi")]
         public string brand { get; set; }
         [Display(Name = "Harga Jual")]
-        [DisplayFormat(DataFormatString = ("{0:0,0}"))]
         [Required(ErrorMessage ="Harga barang harus diisi")]
+        [DisplayFormat(DataFormatString = ("{0:C}"))]
         public float price { get; set; }
         [Display(Name ="Stock Tambahan")]
         [Required(ErrorMessage = "Jumlah stock tambahan harus diisi")]
